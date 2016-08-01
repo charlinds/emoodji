@@ -10,7 +10,7 @@ handlers:
   upload: favicon\.ico
 
 - url: .*
-  script: main.app
+  script: song_database.app
 
 libraries:
 - name: webapp2
