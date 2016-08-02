@@ -1,2 +1,0 @@
-# emoodji
-Emoodji Project Code
