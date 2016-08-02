@@ -1,6 +1,7 @@
 from google.appengine.ext import ndb
 import webapp2
 
+# populates once --> then its a dead end
 
 class Song(ndb.Model):
     title = ndb.StringProperty(required = True)
@@ -445,9 +446,9 @@ songs = [
 class SongHandler(webapp2.RequestHandler):
     def get(self):
         ndb.put_multi(songs)
+        self.response.write("DONE")
 
 
 app = webapp2.WSGIApplication([
-    ('/', SongHandler)
-    ('/main', MainHandler)
+    ('/populate', SongHandler)
 ], debug=True)

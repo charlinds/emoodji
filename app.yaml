@@ -9,13 +9,16 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /songs
+-url: /populate
   script: song_database.app
 
-- url: /
-  script: main.app
-
+- url: .*
+  script: main.py
+ #object app in main.py
 
 libraries:
 - name: webapp2
   version: "2.5.2"
+
+- name: jinja2
+  version: latest
