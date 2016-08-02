@@ -442,11 +442,11 @@ songs = [
 ]
 
 
-class MainHandler(webapp2.RequestHandler):
+class SongHandler(webapp2.RequestHandler):
     def get(self):
         ndb.put_multi(songs)
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', SongHandler)
 ], debug=True)

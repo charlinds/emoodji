@@ -9,8 +9,12 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: .*
+-url: /
   script: song_database.app
+
+- url: .*
+  script: main.py
+
 
 libraries:
 - name: webapp2
