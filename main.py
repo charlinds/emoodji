@@ -48,6 +48,7 @@ class MainHandler(webapp2.RequestHandler):
             # users shouldn't be able to get here without being logged in
             self.error(500)
             return
+            
         emoodji_user = EmoodjiUser(
             first_name= self.request.get('first_name'),
             last_name = self.request.get('last_name'),
