@@ -9,6 +9,17 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('createaccount.html')
         self.response.write(template.render())
+        
+        if user:
+            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+                        (user.nickname(), users.create_logout_url('/')))
+            self.response.out.write('%s' % greeting)
+
+            template = jinja_environment.get_template('templates/input_order.html')
+            self.response.write(template.render())
+        else:
+            self.response.write('<a href="%s">Sign in or register</a>.' %
+                        users.create_login_url('/'))
 
     def post(self):
         template = jinja_environment.get_template('createaccount.html')
