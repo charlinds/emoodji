@@ -1,8 +1,11 @@
-img {
+.logo {
     height: 150px;
     width: 500px;
 }
 body {
-    background-color: hotpink;
-
+    background-image: url(images/background.jpg); repeat;
+}
+.background {
+    position: relative;
+    width: 100%;
 }
