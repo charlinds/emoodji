@@ -25,6 +25,7 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/createaccount.html')
 
         if user:
+<<<<<<< HEAD
             #if user is logged in as a google user:
             #matching the user id in emoodji to the one in google
             emoodji_user = EmoodjiUser.get_by_id(user.user_id())
@@ -38,6 +39,13 @@ class MainHandler(webapp2.RequestHandler):
             else:
                 self.response.write("Welcome to our site, please create and account")
                 self.response.write(template.render())
+=======
+            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+                        (user.nickname(), users.create_logout_url('/')))
+            self.response.out.write('%s' % greeting)
+            
+
+>>>>>>> 44493e77bce3f5905ee5799b9a2b7523f1500e85
         else:
             self.response.write('''Please log in to use our site! <br> <a href="%s">Sign in</a>''' % ( users.create_login_url('/')))
 
