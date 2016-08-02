@@ -446,7 +446,10 @@ class SongHandler(webapp2.RequestHandler):
     def get(self):
         ndb.put_multi(songs)
 
+    def post(self):
+        self.redirect('/main')
 
 app = webapp2.WSGIApplication([
     ('/', SongHandler)
+    ('/main', MainHandler)
 ], debug=True)
