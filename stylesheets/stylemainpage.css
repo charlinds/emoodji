@@ -1,0 +1,28 @@
+.logo {
+    height: 150px;
+    width: 500px;
+}
+body {
+    background-image: url(images/background.jpg); no-repeat;
+}
+.background {
+    position: relative;
+    width: 100%;
+}
+IMG.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+div {
+  text-align: center;
+  position: relative;
+  background-color: white;
+  top: 100px;
+  height: 600px;
+  width: 500px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 30%;
+}

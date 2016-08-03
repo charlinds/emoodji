@@ -7,6 +7,14 @@ import webapp2
 jinja_environment = jinja2.Environment(loader=
     jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+class EmojiHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        template = jinja_environment.get_template('templates/mainpage.html')
+        self.response.write(template.render())
+
+
+
 class EmoodjiUser(ndb.Model):
     first_name = ndb.StringProperty(required = True)
     last_name = ndb.StringProperty(required = True)
@@ -60,5 +68,6 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write('Thanks for signing up, %s!' % emoodji_user.first_name)
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/emoodji', EmojiHandler)
 ], debug=True)
