@@ -15,14 +15,26 @@ IMG.center {
   margin-right: auto;
   border-radius: 50%;
 }
-div {
+.visible {
   text-align: center;
   position: relative;
-  background-color: white;
   top: 100px;
-  height: 100px;
+  height: 600px;
   width: 500px;
   margin-left: 30%;
   margin-right: 30%;
   margin-bottom: 30%;
+  color: white;
+}
+.head {
+  width: 500px;
+  height: 130px;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 10%
+}
+.left {
+  text-align: left;
+  margin-left: 40%;
 }
