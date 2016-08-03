@@ -59,7 +59,6 @@ class MainHandler(webapp2.RequestHandler):
 
         self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
 
-
         template = jinja_environment.get_template('templates/mainpage.html')
         self.response.write(template.render())
 
@@ -103,7 +102,7 @@ class FunctionHandler(webapp2.RequestHandler):
             if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
                 songs.append(song)
 
-    ####WHAT TO RETURN:
+    #### WHAT TO RETURN:
         # return a specific number of songs
         # random.randint(0, len(songs))
         # if(   )
