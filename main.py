@@ -23,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
         if user:
             #if user is logged in as a google user:
             #matching the user id in emoodji to the one in google
-            emoodji_user= EmoodjiUser.get_by_id(user.user_id())
+            emoodji_user = EmoodjiUser.get_by_id(user.user_id())
             #link to sign out (thanks google)
             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
             #if user is emoodji user as well, welcome 'em
