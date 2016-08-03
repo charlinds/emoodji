@@ -14,7 +14,6 @@ class EmojiHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/mainpage.html')
         self.response.write(template.render())
 
-
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -55,6 +54,30 @@ class MainHandler(webapp2.RequestHandler):
             )
         emoodji_user.put()
         self.response.write('Thanks for signing up, %s!' % emoodji_user.first_name)
+
+
+# FUNCTIONALITY of emoojis page (mainpage) HANDLER
+#the functionality of actually getting the songs
+#remember: user and emoodji user are set to have the same id
+class FunctionHandler(webapp2.RequestHandler):
+    user = users.get_current_user()
+    emoodji_account = EmoodjiUser.get_by_id(user.user_id)
+
+    user_genres = emoodji_account.genres
+
+    # if genre in user_genres and mood == mood
+
+    songs = []
+
+    song_query = Song.query()
+
+    # song_data = song_query.filter(Song.genres == user_genres)
+
+    mood = happy
+
+    for song in song_data:
+        if song.mood == mood:
+            songs.append(song)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
