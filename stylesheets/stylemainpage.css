@@ -27,13 +27,6 @@ div {
   margin-bottom: 30%;
 }
 .left {
-      height: 150px;
-      width: 120px;
-      float: left;
-      margin: 45px 0px 100px 94.5px;
-      /* margin: top right bottom left; */
-      border: 3px solid #FFFFFF;
-      box-shadow: 7px 7px 40px #606060;
-      outline: 10px solid #000;
-      /* don't include outline when determining margin for positioning! */
+    float: left;
+    display: inline;
 }
