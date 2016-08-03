@@ -27,6 +27,6 @@ div {
   margin-bottom: 30%;
 }
 .left {
-    float: left;
     display: inline;
+    margin: 0;
 }
