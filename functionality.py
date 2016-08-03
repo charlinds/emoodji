@@ -1,5 +1,5 @@
 # the functionality of actually getting the songs
-#user and emoodji user are set to have the same id
+# user and emoodji user are set to have the same id
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -14,6 +14,8 @@ user = users.get_current_user()
 emoodji_account = EmoodjiUser.get_by_id(user.user_id)
 
 user_genres = emoodji_account.genres
+
+# if genre in user_genres and mood == mood
 
 songs = []
 
