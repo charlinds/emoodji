@@ -54,13 +54,10 @@ class MainHandler(webapp2.RequestHandler):
             id= user.user_id()
             )
         emoodji_user.put()
-        
+
         signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
 
         self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
-
-
-
 
 
         template = jinja_environment.get_template('templates/mainpage.html')
