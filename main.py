@@ -95,7 +95,6 @@ class FunctionHandler(webapp2.RequestHandler):
         songs = []
         song_query = models.Song.query().fetch()
 
-
 #NEED A IF STATEMNET FOR INTERNATIONAL??
             #if usermood == international
             #     template = jinja_environment.get_template('templates/      .html')
@@ -107,13 +106,14 @@ class FunctionHandler(webapp2.RequestHandler):
         shuffle(songs)
 
 # # HOW TO RETURN SONGS???
-
-        signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
-        self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
-
-        # template = jinja_environment.get_template('templates/playlist.html')
-        # self.response.write(template.render())
+        # 
+        # signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
         #
+        # self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
+
+        template = jinja_environment.get_template('templates/playlist.html')
+        self.response.write(template.render())
+
 
 
 
@@ -128,5 +128,5 @@ class FunctionHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/emoodji', EmojiHandler),
-    ('/testing', FunctionHandler)
+    ('/playlist', FunctionHandler)
 ], debug=True)
