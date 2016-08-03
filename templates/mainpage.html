@@ -2,7 +2,6 @@
   <head>
     <title>EMOODJI</title>
     <link href="stylesheets/stylemainpage.css" type="text/css" rel="stylesheet">
-
   </head>
 
   <body>
@@ -18,43 +17,54 @@
           <button value="angry"><img id="angry" src="/images/emojis/angry.jpg" width="100" height="100"></button>
         <h3>
       </div>
+
       <div>
         <h3>
         <button value="happy"><img id="happy" src="/images/emojis/happy.jpg" width="100" height="100"></button>
       </h3>
       </div>
+
       <div>
         <h3>
           <button value="party"><img id="party" src="/images/emojis/party.jpg" width="100" height="100"></button>
         </h3>
       </div>
+
       <div>
         <h3>
           <button value="sad"><img id="sad" src="/images/emojis/sad.jpg" width="100" height="100"><button>
         </h3>
       </div>
+
       <div>
         <h3>
           <button value="sleepy"><img id="sleepy" src="/images/emojis/sleepy.jpg" width="100" height="100"></button>
         </h3>
       </div>
+
       <div>
         <h3>
           <button value="international"><img id="international" src="/images/emojis/international.jpg" width="100" height="100"><button>
         </h3>
       </div>
+      
       <form>
         <input id="input" type="text" name="mood">
       </form>
-       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
+       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
       <script>
       $( "button" ).click(function() {
-        var text = $( this ).val();
-        $( "input" ).val( text );
-        });
-        // $("#angry").val("");// set value of mood to angry
+                            var text = $( this ).val();
+                            $( "input" ).val( text );
+                          }
+                        );
+      </script>
+
+  </body>
+</html>
+        <!-- // $("#angry").val("");// set value of mood to angry
         // $("#angry").click(function() {
         //   $("#input").submit();// submit form
         // };););
@@ -81,11 +91,5 @@
         // $("#international").onclick(function() {
         // $("#international").val("");// set value of mood to angry
         // $("#international").click(function() {
-        //   $("#input").submit();// submit form
-        // };););
-      </script>
-
-    </div>
-  </div>
-    </body>
-  </html>
+        //  $("#input").submit();// submit form
+        // };);); -->
