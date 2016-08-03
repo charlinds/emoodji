@@ -23,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
         if user:
             #if user is logged in as a google user:
             #matching the user id in emoodji to the one in google
-            emoodji_user = EmoodjiUser.get_by_id(user.user_id())
+            emoodji_user = models.EmoodjiUser.get_by_id(user.user_id())
             #link to sign out (thanks google)
             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
             #if user is emoodji user as well, welcome 'em
@@ -44,7 +44,7 @@ class MainHandler(webapp2.RequestHandler):
             self.error(500)
             return
 
-        emoodji_user = EmoodjiUser(
+        emoodji_user = models.EmoodjiUser(
             first_name= self.request.get('first_name'),
             last_name = self.request.get('last_name'),
             username= self.request.get('username'),
@@ -59,27 +59,41 @@ class MainHandler(webapp2.RequestHandler):
 # FUNCTIONALITY of emoojis page (mainpage) HANDLER
 #the functionality of actually getting the songs
 #remember: user and emoodji user are set to have the same id
+
 class FunctionHandler(webapp2.RequestHandler):
-    user = users.get_current_user()
-    emoodji_account = EmoodjiUser.get_by_id(user.user_id)
+    def get(self):
+        user = users.get_current_user()
+        emoodji_account = models.EmoodjiUser.get_by_id(user.user_id())
+        if not emoodji_account:
+            self.redirect('/')
+        # genre = self.request.get('genre')
+        # user_genres = emoodji_account.genres
+        # if genre in user_genres and mood == mood
+        # songs = []
 
-    user_genres = emoodji_account.genres
+    # TEST - DO NOT ERASE
+        # self.response.write('<h1> Your Genre is: ' + emoodji_account.genres[0] + '</h1>')
+        # song_query = models.Song.query().fetch()
+        # for song in song_query:
+        #     if song.genre in emoodji_account.genres:
+        #         self.response.write('<p>' + song.artist + ' has song:' + song.title + '</p>')
+    # END OF TEST
+        # 
+        # song_query = models.Song.query().fetch()
+        # for song in song_query:
+        #     if song.genre in emoodji_account.genres and :
+        #         self.response.write('<p>' + song.artist + ' has song:' + song.title + '</p>')
 
-    # if genre in user_genres and mood == mood
+        # song_data = song_query.filter(Song.genres in user_genres)
+        # mood = happy
+        #
+        # for song in song_data:
+        #     if song.mood == mood:
+        #         songs.append(song)
 
-    songs = []
-
-    song_query = Song.query()
-
-    # song_data = song_query.filter(Song.genres == user_genres)
-
-    mood = happy
-
-    for song in song_data:
-        if song.mood == mood:
-            songs.append(song)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/emoodji', EmojiHandler)
+    ('/emoodji', EmojiHandler),
+    ('/testing', FunctionHandler)
 ], debug=True)

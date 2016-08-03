@@ -10,7 +10,7 @@ class EmoodjiUser(ndb.Model):
         #password = ndb.StringProperty(required = True)
     genres = ndb.StringProperty(repeated= True)
     #repeated used for arrays
-
+    
 
 class Song(ndb.Model):
     title = ndb.StringProperty(required = True)
