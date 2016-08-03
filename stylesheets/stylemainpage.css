@@ -47,5 +47,5 @@ h2 {
 }
 .button {
   background-color: transparent;
-  border-color: black;
+  border: black;
 }
