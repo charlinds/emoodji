@@ -26,3 +26,6 @@ div {
   margin-right: 30%;
   margin-bottom: 30%;
 }
+.left {
+  float:left; width:33%;
+}
