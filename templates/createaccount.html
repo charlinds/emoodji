@@ -6,8 +6,10 @@
   </head>
 
   <body>
-    <div>
-      <h1><img class=logo src="/images/logo.jpg" alt="logo" width="500" height="128"></h1>
+    <div class="head">
+      <h1><img class="logo" src="/images/logo.jpg" alt="logo" width="500" height="128"></h1>
+    </div>
+    <div class="visible">
       <h2>Music Playlist</h2>
 
       <h3> Create Account </h3>
@@ -21,13 +23,15 @@
       </form>
 
       <form action="demo_form.asp" method+"get">
-        <input type="checkbox" name="song" value="Alternative">Alternative<br>
-        <input type="checkbox" name="song" value="Jazz">Jazz<br>
-        <input type="checkbox" name="song" value="Pop">Pop<br>
-        <input type="checkbox" name="song" value="Rock">Rock<br>
-        <input type="checkbox" name="song"value="Classical"> Classical <br>
-        <input type="checkbox" name="song" value="Hip-Hop/R&#38;B">Hip-Hop/R&#38;B <br>
-
+        <div class="left">
+          <input type="checkbox" name="song" value="Alternative">Alternative<br>
+          <input type="checkbox" name="song" value="Jazz">Jazz<br>
+          <input type="checkbox" name="song" value="Pop">Pop<br>
+          <input type="checkbox" name="song" value="Rock">Rock<br>
+          <input type="checkbox" name="song"value="Classical"> Classical <br>
+          <input type="checkbox" name="song" value="Hip-Hop/R&#38;B">Hip-Hop/R&#38;B <br>
+        </div>
+        <br>
         <button type="submit">Submit</button>
       </form>
     </div>
