@@ -9,12 +9,12 @@ from random import *
 jinja_environment = jinja2.Environment(loader=
     jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-# TEST MAINPAGE
-# class EmojiHandler(webapp2.RequestHandler):
-#     def get(self):
-#         user = users.get_current_user()
-#         template = jinja_environment.get_template('templates/mainpage.html')
-#         self.response.write(template.render())
+#TEST MAINPAGE
+class EmojiHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        template = jinja_environment.get_template('templates/mainpage.html')
+        self.response.write(template.render())
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -106,14 +106,14 @@ class FunctionHandler(webapp2.RequestHandler):
                 songs.append(song)
         shuffle(songs)
 
-# HOW TO RETURN SONGS???
+# # HOW TO RETURN SONGS???
 
         signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
         self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
 
-        template = jinja_environment.get_template('templates/playlist.html')
-        self.response.write(template.render())
-
+        # template = jinja_environment.get_template('templates/playlist.html')
+        # self.response.write(template.render())
+        #
 
 
 
