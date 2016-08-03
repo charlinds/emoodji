@@ -93,6 +93,7 @@ class FunctionHandler(webapp2.RequestHandler):
         #     if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
         #         songs.append(song)
 
+
         # return a specific number of songs
         # random.randint(0, len(songs))
         # if(   )
