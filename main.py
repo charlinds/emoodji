@@ -30,7 +30,7 @@ class MainHandler(webapp2.RequestHandler):
                 self.response.write("Welcome %s %s! <br> %s" % (emoodji_user.first_name, emoodji_user.last_name, signout_link_html))
                 template = jinja_environment.get_template('templates/mainpage.html')
                 self.response.write(template.render())
-            #if user is not an emoodji user:
+            #if user is not an emoodji user: createaccount page
             else:
                 self.response.write("Welcome to our site, please create an account")
                 template = jinja_environment.get_template('templates/createaccount.html')
@@ -83,7 +83,7 @@ class FunctionHandler(webapp2.RequestHandler):
     #TEST for "mood" from mainpage
         #self.response.write('<h1> Your Genre is: ' + self.request.get("mood") + '</h1>')
     #END OF TEST
-    
+
         songs = []
         song_query = models.Song.query().fetch()
 
@@ -95,7 +95,7 @@ class FunctionHandler(webapp2.RequestHandler):
             if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
                 songs.append(song)
 
-
+    ####WHAT TO RETURN:
         # return a specific number of songs
         # random.randint(0, len(songs))
         # if(   )
