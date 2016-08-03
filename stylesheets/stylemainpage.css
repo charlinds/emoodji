@@ -9,7 +9,7 @@ body {
     position: relative;
     width: 100%;
 }
-IMG.center {
+.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -18,7 +18,7 @@ IMG.center {
 div {
   text-align: center;
   position: relative;
-  background-color: white;
+  color: white;
   /*top: 100px;*/
   /*height: 600px;
   width: 500px;*/
@@ -26,8 +26,26 @@ div {
   margin-right: 30%;
   margin-bottom: 30%;
 }
-.left {
-    display: inline;
-    margin: 0;
-    width: 33%
+.left1 {
+  display: inline;
+  margin: 0;
+  width: 33%;
+  height: 100px;
+  color: white;
+  background-color: transparent;
+}
+.left2 {
+  display: inline;
+  margin: 0;
+  width: 33%;
+  height: 100px;
+  color: white;
+  background-color: transparent;
+}
+h2 {
+  color: white;
+}
+.button {
+  background-color: transparent;
+  border-color: black;
 }
