@@ -4,6 +4,7 @@ import jinja2
 import os
 import webapp2
 import models
+from random import *
 
 jinja_environment = jinja2.Environment(loader=
     jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -18,8 +19,6 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
 
-        template = jinja_environment.get_template('templates/createaccount.html')
-
         if user:
             #if user is logged in as a google user:
             #matching the user id in emoodji to the one in google
@@ -29,10 +28,12 @@ class MainHandler(webapp2.RequestHandler):
             #if user is emoodji user as well, welcome 'em
             if emoodji_user:
                 self.response.write("Welcome %s %s! <br> %s" % (emoodji_user.first_name, emoodji_user.last_name, signout_link_html))
-
+                template = jinja_environment.get_template('templates/mainpage.html')
+                self.response.write(template.render())
             #if user is not an emoodji user:
             else:
-                self.response.write("Welcome to our site, please create and account")
+                self.response.write("Welcome to our site, please create an account")
+                template = jinja_environment.get_template('templates/createaccount.html')
                 self.response.write(template.render())
         else:
             self.response.write('Please log in to use our site! <br> <a href="%s">Sign in</a>' % (users.create_login_url('/')))
@@ -78,11 +79,24 @@ class FunctionHandler(webapp2.RequestHandler):
         #     if song.genre in emoodji_account.genres:
         #         self.response.write('<p>' + song.artist + ' has song:' + song.title + '</p>')
     # END OF TEST
-        # 
+
+        self.response.write('<h1> Your Genre is: ' + self.request.get("mood") + '</h1>')
+
+        # songs = []
         # song_query = models.Song.query().fetch()
+        #
+            #if usermood == international
+            #     template = jinja_environment.get_template('templates/      .html')
+            #     self.response.write(template.render())
+            #
         # for song in song_query:
-        #     if song.genre in emoodji_account.genres and :
-        #         self.response.write('<p>' + song.artist + ' has song:' + song.title + '</p>')
+        #     if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
+        #         songs.append(song)
+
+        # return a specific number of songs
+        # random.randint(0, len(songs))
+        # if(   )
+        # link = song.link -->then DISPLAY
 
         # song_data = song_query.filter(Song.genres in user_genres)
         # mood = happy
