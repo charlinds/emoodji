@@ -9,11 +9,12 @@ from random import *
 jinja_environment = jinja2.Environment(loader=
     jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-class EmojiHandler(webapp2.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        template = jinja_environment.get_template('templates/mainpage.html')
-        self.response.write(template.render())
+# TEST MAINPAGE
+# class EmojiHandler(webapp2.RequestHandler):
+#     def get(self):
+#         user = users.get_current_user()
+#         template = jinja_environment.get_template('templates/mainpage.html')
+#         self.response.write(template.render())
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -93,6 +94,7 @@ class FunctionHandler(webapp2.RequestHandler):
 
         songs = []
         song_query = models.Song.query().fetch()
+
 
 #NEED A IF STATEMNET FOR INTERNATIONAL??
             #if usermood == international
