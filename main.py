@@ -80,18 +80,20 @@ class FunctionHandler(webapp2.RequestHandler):
         #         self.response.write('<p>' + song.artist + ' has song:' + song.title + '</p>')
     # END OF TEST
 
-        self.response.write('<h1> Your Genre is: ' + self.request.get("mood") + '</h1>')
+    #TEST for "mood" from mainpage
+        #self.response.write('<h1> Your Genre is: ' + self.request.get("mood") + '</h1>')
+    #END OF TEST
+    
+        songs = []
+        song_query = models.Song.query().fetch()
 
-        # songs = []
-        # song_query = models.Song.query().fetch()
-        #
             #if usermood == international
             #     template = jinja_environment.get_template('templates/      .html')
             #     self.response.write(template.render())
             #
-        # for song in song_query:
-        #     if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
-        #         songs.append(song)
+        for song in song_query:
+            if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
+                songs.append(song)
 
 
         # return a specific number of songs
