@@ -106,16 +106,13 @@ class FunctionHandler(webapp2.RequestHandler):
         shuffle(songs)
 
 # # HOW TO RETURN SONGS???
-        # 
-        # signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
-        #
-        # self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
+        
+        signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+
+        self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_account.first_name, signout_link_html))
 
         template = jinja_environment.get_template('templates/playlist.html')
         self.response.write(template.render())
-
-
-
 
         # song_data = song_query.filter(Song.genres in user_genres)
         # mood = happy
