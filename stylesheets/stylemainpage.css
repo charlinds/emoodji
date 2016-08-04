@@ -4,6 +4,7 @@
 }
 body {
     background-image: url(images/background.jpg); no-repeat;
+    color: white;
 }
 .background {
     position: relative;
@@ -46,5 +47,10 @@ h2 {
 }
 .button {
   background-color: transparent;
-  border: black;
+  outline: none;
+  background:none;
+  border:0px;
+}
+head {
+  color: white;
 }
