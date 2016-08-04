@@ -76,14 +76,14 @@ class SettingsHandler(webapp2.RequestHandler):
         emoodji_user = models.EmoodjiUser.get_by_id(user.user_id())
 
         existing_user = {'existing_username': emoodji_user.username,
-                        'exisiting_first': emoodji_user.first_name,
+                        'existing_first': emoodji_user.first_name,
                         'existing_last': emoodji_user.last_name
                         }
 
         signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
 
         self.response.write('Click to sign out, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
-        self.response.write("Hey, "+ emoodji_user.first_name + " use the space below to update your information :)")
+        self.response.write("<br> Hey, "+ emoodji_user.first_name + " use the space below to update your information :)")
         template = jinja_environment.get_template('templates/createaccount.html')
         self.response.write(template.render(existing_user))
 
