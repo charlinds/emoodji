@@ -100,19 +100,36 @@ class FunctionHandler(webapp2.RequestHandler):
             #     template = jinja_environment.get_template('templates/      .html')
             #     self.response.write(template.render())
             #
+        # print song_query
+        # print emoodji_account.genres
+
+
         for song in song_query:
-            if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
-                songs.append(song)
+            print song
+            #print song.genre
+            #print song.mood
+            #print self.request.get("mood")
+            print song.mood
+            print emoodji_account.genres
+            if song.genre in emoodji_account.genres: #and song.mood == self.request.get("mood"):
+                songs.append(song.link)
+            else:
+                print "Not workin :("
+
         shuffle(songs)
 
-# # HOW TO RETURN SONGS???
-        
-        signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+        songs = songs[0:3]
+        #print songs
+        template_values= {'links': songs, 'mood': self.request.get("mood")}
+        #get first three elements
+        #put in dictionary (template_values) [to pass to template later
+        #pass to template
 
+        signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
         self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_account.first_name, signout_link_html))
 
         template = jinja_environment.get_template('templates/playlist.html')
-        self.response.write(template.render())
+        self.response.write(template.render(template_values))
 
         # song_data = song_query.filter(Song.genres in user_genres)
         # mood = happy
