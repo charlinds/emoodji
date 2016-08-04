@@ -16,6 +16,11 @@ class EmojiHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/mainpage.html')
         self.response.write(template.render())
 
+
+#covers signing in and logic behin that
+#what happens to gamil users who are emoodji_users
+#how about gmail users who are non-emoodji users
+#non gmail users??
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -65,6 +70,7 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/mainpage.html')
         self.response.write(template.render())
 
+#go to settings
 class SettingsHandler(webapp2.RequestHandler):
     #link --> always a get request
     def get(self):
@@ -87,6 +93,33 @@ class SettingsHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/createaccount.html')
         self.response.write(template.render(existing_user))
 
+#ADD SONG to our database
+class AddHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/addToDatabase.html')
+        self.response.write(template.render())
+
+    def post(self):
+        song_link= self.request.get('link')
+
+        if "www.youtube.com" not in song_link:
+            self.error(500)
+            self.redirect('/')
+        else:
+            index = song_link.find('=')
+            song_link = song_link[index+1:]
+
+        ## block people from adding exisitng songs?????
+        # let people choose the mood an genre they feel matches
+
+        new_song = models.Song(title = self.request.get('title'),
+                                link = song_link,
+                                artist= self.request.get('artist'),
+
+                                genre= self.request.get('genre'),
+                                mood= self.request.get('mood'))
+        new_song.put()
+        self.redirect('/')
 
 # FUNCTIONALITY of emoojis page (mainpage) HANDLER
 #the functionality of actually getting the songs
@@ -167,5 +200,6 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/emoodji', EmojiHandler),
     ('/playlist', FunctionHandler),
-    ('/settings', SettingsHandler)
+    ('/settings', SettingsHandler),
+    ('/addSong', AddHandler)
 ], debug=True)

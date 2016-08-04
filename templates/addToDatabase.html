@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>EMOODJI</title>
+    <link href="stylesheets/style.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="head">
+      <h1><img class="logo" src="/images/logo.jpg" alt="logo" width="500" height="128"></h1>
+    </div>
+    <div class="visible">
+      <h2>Add a song to our playlist</h2>
+
+
+      <form method="post" action="/addSong">
+          <p>Title: <input type="text" name="title"/></p>
+          <p>Artist: <input type="text" name="artist"/></p>
+          <h5> PLEASE INPUT A YOUTUBE LINK </h5>
+          <p>Link: <input type="text" name="link"/></p>
+
+          <h3>Genre</h3>
+          <select>
+              <option value= "alternative"> Alternative</option>
+              <option value= "jazz"> Jazz</option>
+              <option value= "pop"> Pop</option>
+              <option value= "rock"> Rock</option>
+              <option value= "classical"> Classical</option>
+              <option value= "hip-hop/r&#38;b">Hip-Hop/R&#38;B </option>
+          </select>
+
+          <h3>Mood</h3>
+          <select>
+              <option value= "sad"> Sad</option>
+              <option value= "happy"> Happy</option>
+              <option value= "angry"> Angry</option>
+              <option value= "party"> Party</option>
+              <option value= "language"> Language</option>
+              <option value= "sleepy"> Sleepy</option>
+          </select>
+          <br>
+          <br>
+          <button type="submit">Submit</button>
+
+        </div>
+        <br>
+      </form>
+    </div>
+    </body>
+  </html>
+
+<style>
+body {
+    background-image: url(images/background.jpg);
+    color: white;
+}
+<style/>
