@@ -64,7 +64,7 @@ class MainHandler(webapp2.RequestHandler):
 
         template = jinja_environment.get_template('templates/mainpage.html')
         self.response.write(template.render())
-<<<<<<< Updated upstream
+
 
 class SettingsHandler(webapp2.RequestHandler):
     def post(self):
@@ -88,7 +88,7 @@ class SettingsHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/createaccount.html')
         self.response.write(template.render(existing_user))
 
-=======
+
 
 class SettingsHandler(webapp2.RequestHandler):
     def post(self):
@@ -120,7 +120,7 @@ class SettingsHandler(webapp2.RequestHandler):
 
         template = jinja_environment.get_template('templates/mainpage.html')
         self.response.write(template.render())
->>>>>>> Stashed changes
+
 
 # FUNCTIONALITY of emoojis page (mainpage) HANDLER
 #the functionality of actually getting the songs
