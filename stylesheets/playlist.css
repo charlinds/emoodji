@@ -8,3 +8,9 @@
   height: 150px;
   width: 500px;
 }
+.button {
+  background-color: transparent;
+  outline: none;
+  background:none;
+  border:0px;
+}

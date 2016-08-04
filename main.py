@@ -64,6 +64,7 @@ class MainHandler(webapp2.RequestHandler):
 
         template = jinja_environment.get_template('templates/mainpage.html')
         self.response.write(template.render())
+<<<<<<< Updated upstream
 
 class SettingsHandler(webapp2.RequestHandler):
     def post(self):
@@ -87,6 +88,39 @@ class SettingsHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/createaccount.html')
         self.response.write(template.render(existing_user))
 
+=======
+# 
+# class SettingsHandler(webapp2.RequestHandler):
+#     def post(self):
+#         user = users.get_current_user()
+#         if not user:
+#             # users shouldn't be able to get here without being logged in
+#             self.error(500)
+#             return
+#
+#
+#         self.response.write("Welcome to our site, please create an account")
+#         template = jinja_environment.get_template('templates/createaccount.html')
+#         self.response.write(template.render({'existing_username': ,}))
+#
+#
+#         emoodji_user = models.EmoodjiUser(
+#             first_name= self.request.get('first_name'),
+#             last_name = self.request.get('last_name'),
+#             username= self.request.get('username'),
+#             #WHAT TO DO FOR GENRES (ARRAY)??
+#             genres= self.request.get('song', allow_multiple = True),
+#             id= user.user_id()
+#             )
+#         emoodji_user.put()
+#
+#         signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+#
+#         self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
+#
+#         template = jinja_environment.get_template('templates/mainpage.html')
+#         self.response.write(template.render())
+>>>>>>> Stashed changes
 
 # FUNCTIONALITY of emoojis page (mainpage) HANDLER
 #the functionality of actually getting the songs
