@@ -11,13 +11,14 @@
         <h2>Music Playlist</h2>
 
         <h4> Welcome to your {{mood}} playlist </h4>
-        {% if mood == 'international':%}
+        {% if mood == 'international'%}
               <iframe id="ytplayer" type="text/html" width="540" height="290"
             src="https://www.youtube.com/embed/playlist?list=PLkEo0sUWKtWWrT-JH7bVnjwwForftXTEn"frameborder="0"></iframe>
 
 
         {% else %}
-          {% for link in links %}:
+          {% for link in links %}
+            <p> </p>
             <iframe id="ytplayer" type="text/html" width="540" height="290"
               src="https://www.youtube.com/embed/{{link}}" frameborder="0"></iframe>
               <!-- <h4> {{link}} </h4> -->
