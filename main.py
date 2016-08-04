@@ -72,29 +72,21 @@ class SettingsHandler(webapp2.RequestHandler):
             # users shouldn't be able to get here without being logged in
             self.error(500)
             return
+        emoodji_user = models.EmoodjiUser.get_by_id(user.user_id())
 
+        existing_user = {'existing_username': emoodji_user.username,
+                        'exisiting_first':emoodji_user.first_name,
+                        'existing_last': emoodji_user.last_name
+                        }
 
-        self.response.write("Welcome to our site, please create an account")
-        template = jinja_environment.get_template('templates/createaccount.html')
-        self.response.write(template.render({'existing_username': ,}))
-
-
-        emoodji_user = models.EmoodjiUser(
-            first_name= self.request.get('first_name'),
-            last_name = self.request.get('last_name'),
-            username= self.request.get('username'),
-            #WHAT TO DO FOR GENRES (ARRAY)??
-            genres= self.request.get('song', allow_multiple = True),
-            id= user.user_id()
-            )
-        emoodji_user.put()
 
         signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
 
-        self.response.write('Thanks for signing up, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
+        self.response.write('Click to sign out, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
+        self.response.write("Hey, "+ emoodji_user.first_name + " use the space below to update your information :)")
+        template = jinja_environment.get_template('templates/createaccount.html')
+        self.response.write(template.render(existing_user))
 
-        template = jinja_environment.get_template('templates/mainpage.html')
-        self.response.write(template.render())
 
 # FUNCTIONALITY of emoojis page (mainpage) HANDLER
 #the functionality of actually getting the songs
@@ -174,5 +166,6 @@ class FunctionHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/emoodji', EmojiHandler),
-    ('/playlist', FunctionHandler)
+    ('/playlist', FunctionHandler),
+    ('/setting', SettingsHandler)
 ], debug=True)
