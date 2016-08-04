@@ -87,9 +87,9 @@ class FunctionHandler(webapp2.RequestHandler):
             print emoodji_account.genres
             if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
                 songs.append(song.link)
-                print "working!!!"
-            else:
-                print "BLECKHHHH :("
+            #     # print "working!!!"
+            # else:
+            #     print "BLECKHHHH :("
 
         shuffle(songs)
 
