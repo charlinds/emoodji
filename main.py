@@ -79,7 +79,6 @@ class SettingsHandler(webapp2.RequestHandler):
                         'existing_last': emoodji_user.last_name
                         }
 
-
         signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
 
         self.response.write('Click to sign out, %s! <br> %s' % (emoodji_user.first_name, signout_link_html))
@@ -167,5 +166,5 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/emoodji', EmojiHandler),
     ('/playlist', FunctionHandler),
-    ('/setting', SettingsHandler)
+    ('/settings', SettingsHandler)
 ], debug=True)
