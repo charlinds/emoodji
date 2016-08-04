@@ -66,7 +66,8 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 class SettingsHandler(webapp2.RequestHandler):
-    def post(self):
+    #link --> always a get request
+    def get(self):
         user = users.get_current_user()
         if not user:
             # users shouldn't be able to get here without being logged in
@@ -75,7 +76,7 @@ class SettingsHandler(webapp2.RequestHandler):
         emoodji_user = models.EmoodjiUser.get_by_id(user.user_id())
 
         existing_user = {'existing_username': emoodji_user.username,
-                        'exisiting_first':emoodji_user.first_name,
+                        'exisiting_first': emoodji_user.first_name,
                         'existing_last': emoodji_user.last_name
                         }
 
