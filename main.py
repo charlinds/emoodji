@@ -73,43 +73,19 @@ class FunctionHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         emoodji_account = models.EmoodjiUser.get_by_id(user.user_id())
+        print emoodji_account
         if not emoodji_account:
             self.redirect('/')
-        # genre = self.request.get('genre')
-        # user_genres = emoodji_account.genres
-        # if genre in user_genres and mood == mood
-        # songs = []
-
-    # TEST - DO NOT ERASE
-        # self.response.write('<h1> Your Genre is: ' + emoodji_account.genres[0] + '</h1>')
-        # song_query = models.Song.query().fetch()
-        # for song in song_query:
-        #     if song.genre in emoodji_account.genres:
-        #         self.response.write('<p>' + song.artist + ' has song:' + song.title + '</p>')
-    # END OF TEST
-
-    #TEST for "mood" from mainpage
-        #self.response.write('<h1> Your Genre is: ' + self.request.get("mood") + '</h1>')
-    #END OF TEST
-
         songs = []
         song_query = models.Song.query().fetch()
 
-#NEED A IF STATEMNET FOR INTERNATIONAL??
-            #if usermood == international
-            #     template = jinja_environment.get_template('templates/      .html')
-            #     self.response.write(template.render())
-            #
-        # print song_query
-        # print emoodji_account.genres
-
-
         for song in song_query:
             #print song
-            #print song.genre
+            print song.genre
             #print song.mood
             #print self.request.get("mood")
-            if song.genre in emoodji_account.genres: #and song.mood == self.request.get("mood"):
+            print emoodji_account.genres
+            if song.genre in emoodji_account.genres and song.mood == self.request.get("mood"):
                 songs.append(song.link)
                 print "working!!!"
             else:
@@ -129,6 +105,33 @@ class FunctionHandler(webapp2.RequestHandler):
 
         template = jinja_environment.get_template('templates/playlist.html')
         self.response.write(template.render(template_values))
+
+        # genre = self.request.get('genre')
+        # user_genres = emoodji_account.genres
+        # if genre in user_genres and mood == mood
+        # songs = []
+
+    # TEST - DO NOT ERASE
+        # self.response.write('<h1> Your Genre is: ' + emoodji_account.genres[0] + '</h1>')
+        # song_query = models.Song.query().fetch()
+        # for song in song_query:
+        #     if song.genre in emoodji_account.genres:
+        #         self.response.write('<p>' + song.artist + ' has song:' + song.title + '</p>')
+    # END OF TEST
+
+    #TEST for "mood" from mainpage
+        #self.response.write('<h1> Your Genre is: ' + self.request.get("mood") + '</h1>')
+    #END OF TEST
+
+
+#NEED A IF STATEMNET FOR INTERNATIONAL??
+            #if usermood == international
+            #     template = jinja_environment.get_template('templates/      .html')
+            #     self.response.write(template.render())
+            #
+        # print song_query
+        # print emoodji_account.genres
+
 
         # song_data = song_query.filter(Song.genres in user_genres)
         # mood = happy
