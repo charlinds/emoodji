@@ -2,17 +2,31 @@
   <head>
     <title>EMOODJI</title>
     <link href="stylesheets/playlist.css" type="text/css" rel="stylesheet">
-
   </head>
 
   <body>
-<<<<<<< Updated upstream
     <div class="center">
       <div>
         <h1><img class="logo" src="/images/logo.jpg" alt="logo" width="500" height="128"></h1>
         <h2>Music Playlist</h2>
-        <iframe id="ytplayer" type="text/html" width="540" height="290"
-    src="https://www.youtube.com/embed/playlist?list=PLkEo0sUWKtWWrT-JH7bVnjwwForftXTEn"frameborder="0"></iframe>
+
+
+
+        {% if mood == 'international':%}
+              <h4> Welcome to your international playlist </h4>
+              <iframe id="ytplayer" type="text/html" width="540" height="290"
+            src="https://www.youtube.com/embed/playlist?list=PLkEo0sUWKtWWrT-JH7bVnjwwForftXTEn"frameborder="0"></iframe>
+
+
+        <h4> Welcome to your {{mood}} playlist </h4>
+        {% else %}
+          {% for link in links %}:
+            <iframe id="ytplayer" type="text/html" width="540" height="290"
+              src="https://www.youtube.com/embed/" + {{ link }} frameborder="0"></iframe>
+              <h4> {{link}} </h4>
+
+          {% endfor %}
+        {% endif %}
   </div>
 </body>
 </html>
@@ -23,22 +37,3 @@ body {
     color: white;
 }
 <style/>
-=======
-    <div>
-      <h1><img class="logo" src="/images/logo.jpg" alt="logo" width="500" height="128"></h1>
-      <h2>Music Playlist</h2>
-
-{% if mood == 'international':%}
-      <h4> Welcome to your international playlist </h4>
-      <iframe id="ytplayer" type="text/html" width="540" height="290"
-    src="https://www.youtube.com/embed/playlist?list=PLkEo0sUWKtWWrT-JH7bVnjwwForftXTEn"frameborder="0"></iframe>
-{% endif %}
-
-<h4> Welcome to your {{mood}} playlist </h4>
-{% for link in links %}:
-  <iframe id="ytplayer" type="text/html" width="540" height="290"
-    src=("https://www.youtube.com/embed/" + {{ link }}) frameborder="0"></iframe>
-    <h4> {{link}} </h4>
-
-{% endfor %}
->>>>>>> Stashed changes
