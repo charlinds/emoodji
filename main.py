@@ -38,6 +38,8 @@ class MainHandler(webapp2.RequestHandler):
                 self.response.write(template.render())
         else:
             self.response.write('Please log in to use our site! <br> <a href="%s">Sign in</a>' % (users.create_login_url('/')))
+            template = jinja_environment.get_template('templates/signin.html')
+            self.response.write(template.render())
 
     def post(self):
         user = users.get_current_user()
