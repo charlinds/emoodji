@@ -146,7 +146,6 @@ class FunctionHandler(webapp2.RequestHandler):
             #     # print "working!!!"
             # else:
             #     print "BLECKHHHH :("
-
         shuffle(songs)
 
         songs = songs[0:3]
